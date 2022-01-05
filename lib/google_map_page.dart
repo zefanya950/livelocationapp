@@ -184,13 +184,13 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   }
 
   Future AmbilSemuaData(context, String pNamaTable) async {
-    // final response = await http.post(
-    //     Uri.http('10.0.2.2:8080', "/gomap/bacaAllDetailObj.php"),
-    //     body: {'nama_tabel': pNamaTable});
-
     final response = await http.post(
-        Uri.http('192.168.1.7:8080', "/gomap/bacaAllDetailObj.php"),
+        Uri.http('10.0.2.2:8080', "/gomap/bacaAllDetailObj.php"),
         body: {'nama_tabel': pNamaTable});
+
+    // final response = await http.post(
+    //     Uri.http('192.168.1.7:8080', "/gomap/bacaAllDetailObj.php"),
+    //     body: {'nama_tabel': pNamaTable});
     //responseImage = await http.get(widget.icons);
     // markerIcon = await getBytesFromCanvas(80, 98, widget.icons);
     if (response.statusCode == 200) {
@@ -273,13 +273,13 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   }
 
   Future CekToken(context) async {
-    // final response = await http.post(
-    //     Uri.http('10.0.2.2:8080', "/gomap/bacaDetailObjek.php"),
-    //     body: {'token': token, 'nama_tabel': widget.newNama_tabel});
-
     final response = await http.post(
-        Uri.http('192.168.1.7:8080', "/gomap/bacaDetailObjek.php"),
+        Uri.http('10.0.2.2:8080', "/gomap/bacaDetailObjek.php"),
         body: {'token': token, 'nama_tabel': widget.newNama_tabel});
+
+    // final response = await http.post(
+    //     Uri.http('192.168.1.7:8080', "/gomap/bacaDetailObjek.php"),
+    //     body: {'token': token, 'nama_tabel': widget.newNama_tabel});
 
     if (response.statusCode == 200) {
       Map<String, dynamic> hasil = jsonDecode(response.body);
@@ -299,13 +299,13 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
 
   // ignore: non_constant_identifier_names
   Future AmbilDataSelainLive(context, String pNamaTable, String pId) async {
-    // final response = await http.post(
-    //     Uri.http('10.0.2.2:8080', "/gomap/dataSelainLiveLoc.php"),
-    //     body: {'nama_tabel': pNamaTable, 'id': pId});
-
     final response = await http.post(
-        Uri.http('192.168.1.7:8080', "/gomap/dataSelainLiveLoc.php"),
+        Uri.http('10.0.2.2:8080', "/gomap/dataSelainLiveLoc.php"),
         body: {'nama_tabel': pNamaTable, 'id': pId});
+
+    // final response = await http.post(
+    //     Uri.http('192.168.1.7:8080', "/gomap/dataSelainLiveLoc.php"),
+    //     body: {'nama_tabel': pNamaTable, 'id': pId});
     //responseImage = await http.get(widget.icons);
     if (response.statusCode == 200) {
       Map<String, dynamic> hasil = jsonDecode(response.body);
@@ -333,19 +333,19 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   }
 
   Future<String> DeleteLog(context) async {
-    // final response = await http
-    //     .post(Uri.http('10.0.2.2:8080', "/gomap/deleteLog.php"), body: {
-    //   'nama_tabel': nama_tabel,
-    //   'id': id,
-    //   'token': token,
-    // });
-
     final response = await http
-        .post(Uri.http('192.168.1.7:8080', "/gomap/deleteLog.php"), body: {
+        .post(Uri.http('10.0.2.2:8080', "/gomap/deleteLog.php"), body: {
       'nama_tabel': nama_tabel,
       'id': id,
       'token': token,
     });
+
+    // final response = await http
+    //     .post(Uri.http('192.168.1.7:8080', "/gomap/deleteLog.php"), body: {
+    //   'nama_tabel': nama_tabel,
+    //   'id': id,
+    //   'token': token,
+    // });
 
     if (response.statusCode == 200) {
       Map<String, dynamic> hasil = jsonDecode(response.body);
@@ -361,24 +361,24 @@ class _GoogleMapPageState extends State<GoogleMapPage> {
   }
 
   Future<String> UpdateData(context, String pStatus, String newWkt) async {
-    // final response = await http
-    //     .post(Uri.http('10.0.2.2:8080', "/gomap/updateDetailObjek.php"), body: {
-    //   'nama_tabel': nama_tabel,
-    //   'id': id,
-    //   'wkt': newWkt,
-    //   'status': pStatus,
-    //   'token': token,
-    // });
+    final response = await http
+        .post(Uri.http('10.0.2.2:8080', "/gomap/updateDetailObjek.php"), body: {
+      'nama_tabel': nama_tabel,
+      'id': id,
+      'wkt': newWkt,
+      'status': pStatus,
+      'token': token,
+    });
 
-    final response = await http.post(
-        Uri.http('192.168.1.7:8080', "/gomap/updateDetailObjek.php"),
-        body: {
-          'nama_tabel': nama_tabel,
-          'id': id,
-          'wkt': newWkt,
-          'status': pStatus,
-          'token': token,
-        });
+    // final response = await http.post(
+    //     Uri.http('192.168.1.7:8080', "/gomap/updateDetailObjek.php"),
+    //     body: {
+    //       'nama_tabel': nama_tabel,
+    //       'id': id,
+    //       'wkt': newWkt,
+    //       'status': pStatus,
+    //       'token': token,
+    //     });
 
     if (response.statusCode == 200) {
       Map<String, dynamic> hasil = jsonDecode(response.body);

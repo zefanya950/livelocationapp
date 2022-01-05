@@ -85,13 +85,13 @@ void TampilkanAlertBerhasil(context, String pNamaTbl, String pIcon) {
 }
 
 Future CekToken(context, String pNamaTbl, String pIcon) async {
-  // final response = await http.post(
-  //     Uri.http('10.0.2.2:8080', "/gomap/bacaDetailObjek.php"),
-  //     body: {'token': inputToken, 'nama_tabel': pNamaTbl});
-
   final response = await http.post(
-      Uri.http('192.168.1.7:8080', "/gomap/bacaDetailObjek.php"),
+      Uri.http('10.0.2.2:8080', "/gomap/bacaDetailObjek.php"),
       body: {'token': inputToken, 'nama_tabel': pNamaTbl});
+
+  // final response = await http.post(
+  //     Uri.http('192.168.1.7:8080', "/gomap/bacaDetailObjek.php"),
+  //     body: {'token': inputToken, 'nama_tabel': pNamaTbl});
 
   if (response.statusCode == 200) {
     Map<String, dynamic> hasil = jsonDecode(response.body);

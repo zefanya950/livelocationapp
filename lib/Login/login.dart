@@ -44,13 +44,13 @@ void TampilkanAlertLoginGagal(context) {
 }
 
 Future checklogin(context) async {
-  // final response = await http.post(
-  //     Uri.http('10.0.2.2:8080', "/gomap/login.php"),
-  //     body: {'username': userId, 'password': pass});
-
   final response = await http.post(
-      Uri.http('192.168.1.7:8080', "/gomap/login.php"),
+      Uri.http('10.0.2.2:8080', "/gomap/login.php"),
       body: {'username': userId, 'password': pass});
+
+  // final response = await http.post(
+  //     Uri.http('192.168.1.7:8080', "/gomap/login.php"),
+  //     body: {'username': userId, 'password': pass});
 
   if (response.statusCode == 200) {
     Map<String, dynamic> hasil = jsonDecode(response.body);

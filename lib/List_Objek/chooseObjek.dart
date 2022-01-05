@@ -78,13 +78,13 @@ class _ChooseObjekState extends State<ChooseObjek> {
   // ignore: missing_return
   Future<List<Widget>> loadProcess() async {
     if (wkt_con != "semua") {
-      // final respon = await http.post(
-      //     Uri.http('10.0.2.2:8080', "/gomap/layer.php"),
-      //     body: {'idx': idx.toString(), 'cat': wkt_con});
-
       final respon = await http.post(
-          Uri.http('192.168.1.7:8080', "/gomap/layer.php"),
+          Uri.http('10.0.2.2:8080', "/gomap/layer.php"),
           body: {'idx': idx.toString(), 'cat': wkt_con});
+
+      // final respon = await http.post(
+      //     Uri.http('192.168.1.7:8080', "/gomap/layer.php"),
+      //     body: {'idx': idx.toString(), 'cat': wkt_con});
       List<Widget> temp = [];
       if (respon.statusCode == 200) {
         Map<String, dynamic> data = jsonDecode(respon.body);
@@ -118,11 +118,11 @@ class _ChooseObjekState extends State<ChooseObjek> {
   };
 
   Future getKab() async {
-    // final respon = await http
-    //     .post(Uri.http('10.0.2.2:8080', "/gomap/filterDropDown.php"), body: {});
-    final respon = await http.post(
-        Uri.http('192.168.1.7:8080', "/gomap/filterDropDown.php"),
-        body: {});
+    final respon = await http
+        .post(Uri.http('10.0.2.2:8080', "/gomap/filterDropDown.php"), body: {});
+    // final respon = await http.post(
+    //     Uri.http('192.168.1.7:8080', "/gomap/filterDropDown.php"),
+    //     body: {});
     List<Widget> temp = [];
     if (respon.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(respon.body);
@@ -141,13 +141,13 @@ class _ChooseObjekState extends State<ChooseObjek> {
 
   // ignore: missing_return
   Future<List<Widget>> loadMore() async {
-    // final respon = await http.post(
-    //     Uri.http('10.0.2.2:8080', "/gomap/layer.php"),
-    //     body: {'idx': idx.toString(), 'cat': wkt_con});
-
     final respon = await http.post(
-        Uri.http('192.168.1.7:8080', "/gomap/layer.php"),
+        Uri.http('10.0.2.2:8080', "/gomap/layer.php"),
         body: {'idx': idx.toString(), 'cat': wkt_con});
+
+    // final respon = await http.post(
+    //     Uri.http('192.168.1.7:8080', "/gomap/layer.php"),
+    //     body: {'idx': idx.toString(), 'cat': wkt_con});
     List<Widget> temp = [];
     if (respon.statusCode == 200) {
       Map<String, dynamic> data = jsonDecode(respon.body);
